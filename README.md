@@ -2,7 +2,7 @@
 sample jahia managing item list demo
 
 # how to start app
-``` ./deploy.sh ```
+### ``` ./deploy.sh ```
 
 # manuel start
 ## ``` in demo-front : npm install && npm run start ```
