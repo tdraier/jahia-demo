@@ -8,3 +8,10 @@ spring:
     username: admin
     password: admin
     initialization-mode: always
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG

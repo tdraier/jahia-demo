@@ -44,8 +44,9 @@ public class ArticleController {
     }
 
     @DeleteMapping("/article/delete/{id}")
-    public void delete(@PathVariable("id") Long id) {
+    public Mono<Boolean> delete(@PathVariable("id") Long id) {
         logHelper.logAction("/article/delete/" + id);
-        if (id != null) articleService.delete(id);
+        if (id != null) return articleService.delete(id);
+        else return Mono.justOrEmpty(false);
     }
 }

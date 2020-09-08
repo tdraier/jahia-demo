@@ -10,6 +10,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import ArticleController from '../controllers/ArticleController';
 import IconButton from '@material-ui/core/IconButton';
+import CachedIcon from '@material-ui/icons/Cached';
 import '../styles/App.css';
 
 function deleteRow(id) {
@@ -27,6 +28,9 @@ class ArticleListComp extends Component {
         
         return (
             <React.Fragment>
+                <IconButton variant="outlined"onClick={e => new ArticleController().fetchAll(this)}>
+                    <CachedIcon/>
+                </IconButton>
                 <TableContainer component={Paper}>
                     <Table className="tableClass" aria-label="simple table">
                         <TableHead>
