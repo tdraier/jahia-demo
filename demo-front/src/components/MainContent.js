@@ -18,10 +18,6 @@ function addArticle(title, editor, content) {
   )
 }
 
-function cancel() {
-  console.log('cancel action')
-}
-
 function MainContent() {
     const classes = styleHelper.mainStyle();
     const [title, setTitle] = useState('');

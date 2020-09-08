@@ -46,7 +46,6 @@ public class ArticleServiceImpl implements ArticleService {
                 .flatMap(a -> {
                     a.setContent(articleDto.getContent());
                     a.setTitle(articleDto.getTitle());
-                    a.setUserId(articleDto.getUserId());
                     return articleRepo.save(a);
                 }).subscribe();
     }
