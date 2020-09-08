@@ -23,33 +23,6 @@ class ArticleListComp extends Component {
         articles: []
     }
 
-    
-
-
-    listArticles = () => {
-        return this.state.articles.map((row) => (
-            <TableRow key={row.id}>
-                <TableCell align="right">{row.id}</TableCell>
-                <TableCell align="right">{row.title}</TableCell>
-                <TableCell align="right">{row.content}</TableCell>
-                <TableCell align="right">{row.userId}</TableCell>
-                <TableCell align="right">
-                    <IconButton variant="outlined">
-                        <EditIcon/>
-                    </IconButton>
-                </TableCell>
-                <TableCell align="right">
-                    <IconButton variant="outlined" onClick= {e => {
-                            deleteRow(row.id)
-                        }
-                        }>
-                        <DeleteForeverIcon />
-                    </IconButton>
-                </TableCell>
-            </TableRow>
-        ))
-    }
-
     render() {
         
         return (
@@ -67,7 +40,27 @@ class ArticleListComp extends Component {
                         </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.listArticles}
+                            {this.state.articles.map((row) => (
+                                <TableRow key={row.id}>
+                                    <TableCell align="right">{row.id}</TableCell>
+                                    <TableCell align="right">{row.title}</TableCell>
+                                    <TableCell align="right">{row.content}</TableCell>
+                                    <TableCell align="right">{row.userId}</TableCell>
+                                    <TableCell align="right">
+                                        <IconButton variant="outlined">
+                                            <EditIcon/>
+                                        </IconButton>
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <IconButton variant="outlined" onClick= {e => {
+                                                deleteRow(row.id)
+                                            }
+                                            }>
+                                            <DeleteForeverIcon />
+                                        </IconButton>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
                 </TableContainer>   
