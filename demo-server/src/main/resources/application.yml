@@ -3,7 +3,8 @@ server:
 
 spring:
   r2dbc:
-    url: r2dbc:postgresql://db:5432/testdb
+    #url: r2dbc:postgresql://db:5432/testdb
+    url: r2dbc:postgresql://localhost:5432/testdb
     username: admin
     password: admin
     initialization-mode: always

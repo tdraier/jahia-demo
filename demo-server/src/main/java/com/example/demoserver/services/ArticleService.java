@@ -11,7 +11,7 @@ public interface ArticleService {
 
     Mono<ArticleDto> getArticle(final long id);
 
-    void create(final ArticleDto articleDto);
+    Mono<Void> create(final ArticleDto articleDto);
 
     void edit(final ArticleDto articleDto);
 

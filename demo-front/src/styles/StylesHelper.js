@@ -39,14 +39,20 @@ export const mainStyle = makeStyles(theme => ({
       padding: theme.spacing(6),
     },
     submit: {
-      margin: theme.spacing(8, 8, 8),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(3)
     },
     cancel: {
-      margin: theme.spacing(8, 8, 8),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(3)
     },
     form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
+      width: '50%',
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    },
+    textArea: {
+      width: '100%'
     }
 }));
 

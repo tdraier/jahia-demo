@@ -32,11 +32,12 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void create(ArticleDto articleDto) {
+    public Mono<Void> create(ArticleDto articleDto) {
         Article article = new Article();
         article.setTitle(articleDto.getTitle());
         article.setContent(articleDto.getContent());
-        articleRepo.save(article).subscribe();
+        article.setUserId(articleDto.getUserId());
+        return articleRepo.save(article).then();
     }
 
     @Override
@@ -45,6 +46,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .flatMap(a -> {
                     a.setContent(articleDto.getContent());
                     a.setTitle(articleDto.getTitle());
+                    a.setUserId(articleDto.getUserId());
                     return articleRepo.save(a);
                 }).subscribe();
     }

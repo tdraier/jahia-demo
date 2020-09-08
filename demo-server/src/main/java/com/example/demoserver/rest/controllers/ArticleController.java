@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.time.LocalDateTime;
-
 @RestController
 @Slf4j
 public class ArticleController {
@@ -34,17 +32,20 @@ public class ArticleController {
     }
 
     @PostMapping("/article/add")
-    public void add() {
+    public Mono<Void> add(@RequestBody final ArticleDto articleDto) {
         logHelper.logAction("/article/add");
+        return articleService.create(articleDto);
     }
 
     @PutMapping("/artricle/edit/{id}")
-    public void edit(@PathVariable("id") String id) {
+    public void edit(@PathVariable("id") String id, @RequestBody final ArticleDto articleDto) {
         logHelper.logAction("/article/edit/" + id);
+        articleService.edit(articleDto);
     }
 
     @DeleteMapping("/article/delete/{id}")
-    public void delete(@PathVariable("id") String id) {
+    public void delete(@PathVariable("id") Long id) {
         logHelper.logAction("/article/delete/" + id);
+        if (id != null) articleService.delete(id);
     }
 }
